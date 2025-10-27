@@ -1,0 +1,21 @@
+{
+  "$id":"orders.v1","title":"order","type":"object",
+  "required":["schema_name","schema_version","order_id","user_id","order_date","total_amount"],
+  "properties":{
+    "schema_name":{"type":"string","const":"order"},
+    "schema_version":{"type":"string","const":"v1"},
+    "source_system":{"type":"string","const":"orders"},
+    "order_id":{"type":"string"},
+    "user_id":{"type":"string"},
+    "order_date":{"type":"string","format":"date-time"},
+    "total_amount":{"type":"number"},
+    "currency":{"type":"string"},
+    "payment_method":{"type":"string"},
+    "status":{"type":"string","enum":["created","paid","shipped","completed","cancelled"]},
+    "items":{"type":"array","items":{"type":"object","required":["product_id","quantity","price"],
+       "properties":{"product_id":{"type":"string"},"quantity":{"type":"integer"},"price":{"type":"number"}}}},
+    "shipping_address":{"type":["object","null"]},
+    "ingestion_timestamp":{"type":"string","format":"date-time"}
+  },
+  "additionalProperties": false
+}
