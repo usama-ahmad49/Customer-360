@@ -1,0 +1,6 @@
+{
+ "schema_name":"marketing_event","schema_version":"v1","source_system":"marketing",
+ "event_id":"f3e4d5c6-3333-4a44-aaaa-333333333333","campaign_id":"camp-2025-holiday",
+ "user_id":"user-1234","event_type":"email_open","event_timestamp":"2025-10-27T12:05:00Z",
+ "channel":"email","utm_campaign":"holiday_sale","ingestion_timestamp":"2025-10-27T12:05:01Z"
+}
