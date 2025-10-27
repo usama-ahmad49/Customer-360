@@ -1,0 +1,18 @@
+{
+  "$id":"marketing.v1","title":"marketing_event","type":"object",
+  "required":["schema_name","schema_version","event_id","campaign_id","user_id","event_type","event_timestamp"],
+  "properties":{
+    "schema_name":{"type":"string","const":"marketing_event"},
+    "schema_version":{"type":"string","const":"v1"},
+    "source_system":{"type":"string","const":"marketing"},
+    "event_id":{"type":"string","format":"uuid"},
+    "campaign_id":{"type":"string"},
+    "user_id":{"type":"string"},
+    "event_type":{"type":"string","enum":["email_sent","email_open","email_click","sms_sent","sms_click","unsubscribe"]},
+    "event_timestamp":{"type":"string","format":"date-time"},
+    "channel":{"type":"string"},
+    "utm_campaign":{"type":["string","null"]},
+    "ingestion_timestamp":{"type":"string","format":"date-time"}
+  },
+  "additionalProperties": false
+}
