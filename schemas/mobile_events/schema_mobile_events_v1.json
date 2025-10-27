@@ -1,0 +1,20 @@
+{
+  "$id":"mobile_events.v1","title":"mobile_event","type":"object",
+  "required":["schema_name","schema_version","event_id","device_id","event_type","event_timestamp"],
+  "properties":{
+    "schema_name":{"type":"string","const":"mobile_event"},
+    "schema_version":{"type":"string","const":"v1"},
+    "source_system":{"type":"string","const":"mobile"},
+    "event_id":{"type":"string","format":"uuid"},
+    "user_id":{"type":["string","null"]},
+    "device_id":{"type":"string"},
+    "app_version":{"type":["string","null"]},
+    "event_type":{"type":"string","enum":["app_open","screen_view","product_view","add_to_cart","purchase","push_open"]},
+    "event_timestamp":{"type":"string","format":"date-time"},
+    "os":{"type":["string","null"]},
+    "locale":{"type":["string","null"]},
+    "properties":{"type":"object","additionalProperties": true},
+    "ingestion_timestamp":{"type":"string","format":"date-time"}
+  },
+  "additionalProperties": false
+}
