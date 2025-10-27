@@ -1,0 +1,24 @@
+{
+  "$id": "clickstream.v1",
+  "title": "web_clickstream",
+  "type": "object",
+  "required": ["schema_name","schema_version","event_id","user_id","session_id","event_type","event_timestamp","page_url"],
+  "properties": {
+    "schema_name": {"type":"string","const":"web_clickstream"},
+    "schema_version": {"type":"string","const":"v1"},
+    "source_system": {"type":"string","const":"web"},
+    "event_id": {"type":"string","format":"uuid"},
+    "user_id": {"type":["string","null"]},
+    "session_id": {"type":"string"},
+    "event_type": {"type":"string","enum":["page_view","product_view","add_to_cart","checkout","purchase","click"]},
+    "event_timestamp": {"type":"string","format":"date-time"},
+    "page_url": {"type":"string"},
+    "referrer": {"type":["string","null"]},
+    "user_agent": {"type":["string","null"]},
+    "device_type": {"type":["string","null"]},
+    "geo_country": {"type":["string","null"]},
+    "properties": {"type":"object","additionalProperties": true},
+    "ingestion_timestamp": {"type":"string","format":"date-time"}
+  },
+  "additionalProperties": false
+}
