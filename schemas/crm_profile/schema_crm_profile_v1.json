@@ -1,0 +1,22 @@
+{
+  "$id":"crm_profile.v1","title":"crm_profile","type":"object",
+  "required":["schema_name","schema_version","user_id","email","created_at"],
+  "properties":{
+    "schema_name":{"type":"string","const":"crm_profile"},
+    "schema_version":{"type":"string","const":"v1"},
+    "source_system":{"type":"string","const":"crm"},
+    "user_id":{"type":"string"},
+    "first_name":{"type":["string","null"]},
+    "last_name":{"type":["string","null"]},
+    "email":{"type":"string","format":"email"},
+    "phone":{"type":["string","null"]},
+    "address":{"type":["object","null"], "properties": {
+       "line1":{"type":"string"},"city":{"type":"string"},"postal_code":{"type":"string"},"country":{"type":"string"}
+    }},
+    "loyalty_tier":{"type":["string","null"]},
+    "created_at":{"type":"string","format":"date-time"},
+    "updated_at":{"type":"string","format":"date-time"},
+    "ingestion_timestamp":{"type":"string","format":"date-time"}
+  },
+  "additionalProperties": false
+}
