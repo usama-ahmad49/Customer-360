@@ -1,0 +1,9 @@
+{
+  "schema_name":"web_clickstream","schema_version":"v1","source_system":"web",
+  "event_id":"8a1f3e30-7f2a-4a7c-9d9a-111111111111",
+  "user_id":"user-1234","session_id":"sess-5678","event_type":"product_view",
+  "event_timestamp":"2025-10-27T12:00:00Z","page_url":"/product/sku-100",
+  "user_agent":"Mozilla/5.0 ...","device_type":"desktop","geo_country":"CA",
+  "properties":{"product_id":"sku-100","price":49.99},
+  "ingestion_timestamp":"2025-10-27T12:00:01Z"
+}
