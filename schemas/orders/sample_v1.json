@@ -1,0 +1,7 @@
+{
+ "schema_name":"order","schema_version":"v1","source_system":"orders",
+ "order_id":"ord-20251027-0001","user_id":"user-1234","order_date":"2025-10-27T11:59:00Z",
+ "total_amount":129.97,"currency":"CAD","payment_method":"card","status":"paid",
+ "items":[{"product_id":"sku-100","quantity":1,"price":79.99},{"product_id":"sku-300","quantity":1,"price":49.98}],
+ "ingestion_timestamp":"2025-10-27T12:03:00Z"
+}
