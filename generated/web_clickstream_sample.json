@@ -1,0 +1,402 @@
+[
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "44c5cdea-d93f-4042-88a2-5abc9bf2561c",
+    "user_id": null,
+    "session_id": "sess-8359cfc0",
+    "event_type": "page_view",
+    "event_timestamp": "2025-10-29T19:38:42.604558+00:00",
+    "page_url": "/product/sku-207",
+    "referrer": "https://www.brown.info/",
+    "user_agent": "Mozilla/5.0 (Windows; U; Windows NT 6.0) AppleWebKit/534.21.2 (KHTML, like Gecko) Version/4.0 Safari/534.21.2",
+    "device_type": "desktop",
+    "geo_country": "PS",
+    "properties": {
+      "product_id": "sku-427",
+      "price": 201.96
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.609703+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "25d94f2b-c9ae-4b3c-9ebc-ef514c564336",
+    "user_id": "user-821",
+    "session_id": "sess-e613868a",
+    "event_type": "checkout",
+    "event_timestamp": "2025-10-29T19:38:42.609703+00:00",
+    "page_url": "/product/sku-231",
+    "referrer": "http://pineda.com/",
+    "user_agent": "Opera/8.61.(Windows 98; as-IN) Presto/2.9.186 Version/10.00",
+    "device_type": "desktop",
+    "geo_country": "IE",
+    "properties": {
+      "product_id": "sku-39",
+      "price": 330.47
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.609703+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "90620db4-76ce-4ebe-a0ef-69ecca0879fa",
+    "user_id": "user-665",
+    "session_id": "sess-e5b487a3",
+    "event_type": "checkout",
+    "event_timestamp": "2025-10-29T19:38:42.609703+00:00",
+    "page_url": "/product/sku-313",
+    "referrer": "https://www.wright-vaughn.net/",
+    "user_agent": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_12_9 rv:5.0; ko-KR) AppleWebKit/531.35.7 (KHTML, like Gecko) Version/4.0 Safari/531.35.7",
+    "device_type": "mobile",
+    "geo_country": "HR",
+    "properties": {
+      "product_id": "sku-199",
+      "price": 486.82
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.625322+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "b619db09-ee36-43e7-aab8-573467cc2cab",
+    "user_id": null,
+    "session_id": "sess-ba1bcc4f",
+    "event_type": "purchase",
+    "event_timestamp": "2025-10-29T19:38:42.625322+00:00",
+    "page_url": "/product/sku-144",
+    "referrer": "https://www.gonzalez-chen.com/",
+    "user_agent": "Mozilla/5.0 (Macintosh; PPC Mac OS X 10_11_2; rv:1.9.3.20) Gecko/3271-11-19 16:21:43 Firefox/14.0",
+    "device_type": "mobile",
+    "geo_country": "SB",
+    "properties": {
+      "product_id": "sku-499",
+      "price": 186.07
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.625322+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "d528b97b-4b80-4ab0-9b69-83323e547598",
+    "user_id": null,
+    "session_id": "sess-bafbc1ca",
+    "event_type": "page_view",
+    "event_timestamp": "2025-10-29T19:38:42.625322+00:00",
+    "page_url": "/product/sku-406",
+    "referrer": "https://www.carlson.com/",
+    "user_agent": "Mozilla/5.0 (iPad; CPU iPad OS 14_2_1 like Mac OS X) AppleWebKit/532.0 (KHTML, like Gecko) CriOS/20.0.806.0 Mobile/10T808 Safari/532.0",
+    "device_type": "tablet",
+    "geo_country": "GW",
+    "properties": {
+      "product_id": "sku-472",
+      "price": 38.3
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.640955+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "9382bc91-9c36-4e72-a04a-7bbd701f74fd",
+    "user_id": null,
+    "session_id": "sess-b8fbb681",
+    "event_type": "page_view",
+    "event_timestamp": "2025-10-29T19:38:42.640955+00:00",
+    "page_url": "/product/sku-307",
+    "referrer": "https://garza.com/",
+    "user_agent": "Opera/9.48.(Windows NT 6.1; quz-PE) Presto/2.9.189 Version/11.00",
+    "device_type": "tablet",
+    "geo_country": "AT",
+    "properties": {
+      "product_id": "sku-401",
+      "price": 283.79
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.656580+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "9d235067-3676-4ad3-ad60-7131c527bd15",
+    "user_id": null,
+    "session_id": "sess-d1f1aaaa",
+    "event_type": "page_view",
+    "event_timestamp": "2025-10-29T19:38:42.656580+00:00",
+    "page_url": "/product/sku-302",
+    "referrer": "http://www.bass.com/",
+    "user_agent": "Opera/9.69.(X11; Linux i686; iu-CA) Presto/2.9.170 Version/11.00",
+    "device_type": "desktop",
+    "geo_country": "IT",
+    "properties": {
+      "product_id": "sku-432",
+      "price": 335.22
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.656580+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "0fcaf84b-e1dd-43a1-b2b4-caa0ce93d24f",
+    "user_id": null,
+    "session_id": "sess-05d21ff7",
+    "event_type": "checkout",
+    "event_timestamp": "2025-10-29T19:38:42.656580+00:00",
+    "page_url": "/product/sku-341",
+    "referrer": "https://www.peters.com/",
+    "user_agent": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_12_9 rv:3.0; hne-IN) AppleWebKit/533.30.1 (KHTML, like Gecko) Version/5.0 Safari/533.30.1",
+    "device_type": "tablet",
+    "geo_country": "LR",
+    "properties": {
+      "product_id": "sku-342",
+      "price": 49.2
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.656580+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "6e908836-f714-4859-9977-bc7ff2892e74",
+    "user_id": null,
+    "session_id": "sess-11705a1a",
+    "event_type": "purchase",
+    "event_timestamp": "2025-10-29T19:38:42.672207+00:00",
+    "page_url": "/product/sku-109",
+    "referrer": "https://jackson.com/",
+    "user_agent": "Mozilla/5.0 (iPad; CPU iPad OS 4_2_1 like Mac OS X) AppleWebKit/536.0 (KHTML, like Gecko) FxiOS/13.6o6710.0 Mobile/62F464 Safari/536.0",
+    "device_type": "mobile",
+    "geo_country": "IR",
+    "properties": {
+      "product_id": "sku-159",
+      "price": 348.24
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.672207+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "cf11c8d9-e503-42b7-b49b-43b2414c1ac8",
+    "user_id": "user-160",
+    "session_id": "sess-98f5339c",
+    "event_type": "page_view",
+    "event_timestamp": "2025-10-29T19:38:42.672207+00:00",
+    "page_url": "/product/sku-439",
+    "referrer": "http://www.vasquez.org/",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_8_1 like Mac OS X) AppleWebKit/534.2 (KHTML, like Gecko) CriOS/37.0.883.0 Mobile/86N474 Safari/534.2",
+    "device_type": "tablet",
+    "geo_country": "MT",
+    "properties": {
+      "product_id": "sku-237",
+      "price": 248.42
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.687829+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "8d33d13c-a9e9-43f7-9116-f8f478e2eb03",
+    "user_id": null,
+    "session_id": "sess-4ab3c49b",
+    "event_type": "add_to_cart",
+    "event_timestamp": "2025-10-29T19:38:42.687829+00:00",
+    "page_url": "/product/sku-4",
+    "referrer": "https://www.baldwin.net/",
+    "user_agent": "Mozilla/5.0 (Windows 98) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/26.0.811.0 Safari/535.2",
+    "device_type": "desktop",
+    "geo_country": "DJ",
+    "properties": {
+      "product_id": "sku-71",
+      "price": 35.21
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.687829+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "1c9094c0-e56d-4c02-9658-0aa3736fed89",
+    "user_id": "user-393",
+    "session_id": "sess-92692b04",
+    "event_type": "product_view",
+    "event_timestamp": "2025-10-29T19:38:42.687829+00:00",
+    "page_url": "/product/sku-238",
+    "referrer": "http://www.shaffer-jackson.org/",
+    "user_agent": "Mozilla/5.0 (Android 4.4.2; Mobile; rv:21.0) Gecko/21.0 Firefox/21.0",
+    "device_type": "mobile",
+    "geo_country": "LV",
+    "properties": {
+      "product_id": "sku-478",
+      "price": 359.4
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.703457+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "ad20d4a7-9bac-4d76-9196-e8ea2651a7cd",
+    "user_id": null,
+    "session_id": "sess-8fdd4148",
+    "event_type": "purchase",
+    "event_timestamp": "2025-10-29T19:38:42.703457+00:00",
+    "page_url": "/product/sku-165",
+    "referrer": "http://www.wu.com/",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/532.2 (KHTML, like Gecko) FxiOS/13.5h5410.0 Mobile/55K079 Safari/532.2",
+    "device_type": "tablet",
+    "geo_country": "NE",
+    "properties": {
+      "product_id": "sku-316",
+      "price": 265.05
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.703457+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "8021e841-b627-4117-b5e0-85231072c6c7",
+    "user_id": "user-416",
+    "session_id": "sess-bf59e3d9",
+    "event_type": "page_view",
+    "event_timestamp": "2025-10-29T19:38:42.703457+00:00",
+    "page_url": "/product/sku-400",
+    "referrer": "https://sutton-hicks.info/",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_5_7 like Mac OS X) AppleWebKit/535.2 (KHTML, like Gecko) CriOS/51.0.896.0 Mobile/00L409 Safari/535.2",
+    "device_type": "tablet",
+    "geo_country": "NL",
+    "properties": {
+      "product_id": "sku-177",
+      "price": 297.33
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.703457+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "fab3c44a-a9ac-4e49-bc49-e513c5768a90",
+    "user_id": "user-490",
+    "session_id": "sess-ac74a6db",
+    "event_type": "add_to_cart",
+    "event_timestamp": "2025-10-29T19:38:42.703457+00:00",
+    "page_url": "/product/sku-373",
+    "referrer": "http://www.jenkins.com/",
+    "user_agent": "Mozilla/5.0 (Android 1.5; Mobile; rv:43.0) Gecko/43.0 Firefox/43.0",
+    "device_type": "mobile",
+    "geo_country": "TV",
+    "properties": {
+      "product_id": "sku-491",
+      "price": 168.72
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.719351+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "8fbb76e5-151f-493d-ab86-88ac60509aab",
+    "user_id": "user-129",
+    "session_id": "sess-ce1fd534",
+    "event_type": "click",
+    "event_timestamp": "2025-10-29T19:38:42.719351+00:00",
+    "page_url": "/product/sku-360",
+    "referrer": "https://wilkerson.com/",
+    "user_agent": "Mozilla/5.0 (Windows NT 11.0; ast-ES; rv:1.9.2.20) Gecko/8626-11-07 04:45:53 Firefox/9.0",
+    "device_type": "tablet",
+    "geo_country": "IR",
+    "properties": {
+      "product_id": "sku-398",
+      "price": 414.38
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.734980+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "cac31e0a-86a3-4411-982e-4e82945662fe",
+    "user_id": null,
+    "session_id": "sess-bcf650c4",
+    "event_type": "page_view",
+    "event_timestamp": "2025-10-29T19:38:42.734980+00:00",
+    "page_url": "/product/sku-276",
+    "referrer": "https://www.orr.com/",
+    "user_agent": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_9_6) AppleWebKit/533.0 (KHTML, like Gecko) Chrome/60.0.852.0 Safari/533.0",
+    "device_type": "mobile",
+    "geo_country": "GM",
+    "properties": {
+      "product_id": "sku-149",
+      "price": 41.69
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.734980+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "66773f89-77ea-4eb1-8ed6-176670492340",
+    "user_id": null,
+    "session_id": "sess-da3b2b64",
+    "event_type": "click",
+    "event_timestamp": "2025-10-29T19:38:42.734980+00:00",
+    "page_url": "/product/sku-418",
+    "referrer": "https://wise-harrison.org/",
+    "user_agent": "Mozilla/5.0 (Macintosh; PPC Mac OS X 10_9_7 rv:4.0; gl-ES) AppleWebKit/535.4.3 (KHTML, like Gecko) Version/4.0.4 Safari/535.4.3",
+    "device_type": "tablet",
+    "geo_country": "AD",
+    "properties": {
+      "product_id": "sku-134",
+      "price": 151.34
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.734980+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "c77c2921-10c1-4a70-99e8-177421dfcafd",
+    "user_id": "user-284",
+    "session_id": "sess-ba088a49",
+    "event_type": "add_to_cart",
+    "event_timestamp": "2025-10-29T19:38:42.734980+00:00",
+    "page_url": "/product/sku-56",
+    "referrer": "https://www.herrera.com/",
+    "user_agent": "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 5.01; Trident/5.0)",
+    "device_type": "desktop",
+    "geo_country": "ST",
+    "properties": {
+      "product_id": "sku-443",
+      "price": 498.03
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.750605+00:00"
+  },
+  {
+    "schema_name": "web_clickstream",
+    "schema_version": "v1",
+    "source_system": "web",
+    "event_id": "da17a4e8-ea0f-4e68-9e5d-854d2873bd05",
+    "user_id": "user-206",
+    "session_id": "sess-17c83ca9",
+    "event_type": "checkout",
+    "event_timestamp": "2025-10-29T19:38:42.750605+00:00",
+    "page_url": "/product/sku-65",
+    "referrer": "http://pruitt.net/",
+    "user_agent": "Opera/9.10.(X11; Linux i686; et-EE) Presto/2.9.185 Version/12.00",
+    "device_type": "mobile",
+    "geo_country": "KR",
+    "properties": {
+      "product_id": "sku-255",
+      "price": 248.43
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:42.750605+00:00"
+  }
+]

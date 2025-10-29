@@ -1,0 +1,402 @@
+[
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0001",
+    "user_id": "user-714",
+    "order_date": "2025-10-29T19:38:45.760109+00:00",
+    "total_amount": 11.18,
+    "currency": "CAD",
+    "payment_method": "paypal",
+    "status": "completed",
+    "items": [
+      {
+        "product_id": "sku-93",
+        "quantity": 1,
+        "price": 121.25
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.760109+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0002",
+    "user_id": "user-423",
+    "order_date": "2025-10-29T19:38:45.760109+00:00",
+    "total_amount": 339.19,
+    "currency": "CAD",
+    "payment_method": "paypal",
+    "status": "created",
+    "items": [
+      {
+        "product_id": "sku-175",
+        "quantity": 2,
+        "price": 253.53
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.760109+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0003",
+    "user_id": "user-229",
+    "order_date": "2025-10-29T19:38:45.760109+00:00",
+    "total_amount": 152.26,
+    "currency": "CAD",
+    "payment_method": "paypal",
+    "status": "created",
+    "items": [
+      {
+        "product_id": "sku-179",
+        "quantity": 3,
+        "price": 212.9
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.760109+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0004",
+    "user_id": "user-972",
+    "order_date": "2025-10-29T19:38:45.760109+00:00",
+    "total_amount": 200.83,
+    "currency": "CAD",
+    "payment_method": "card",
+    "status": "completed",
+    "items": [
+      {
+        "product_id": "sku-445",
+        "quantity": 1,
+        "price": 73.33
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0005",
+    "user_id": "user-609",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 111.58,
+    "currency": "CAD",
+    "payment_method": "card",
+    "status": "paid",
+    "items": [
+      {
+        "product_id": "sku-331",
+        "quantity": 1,
+        "price": 145.61
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0006",
+    "user_id": "user-200",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 168.5,
+    "currency": "CAD",
+    "payment_method": "paypal",
+    "status": "paid",
+    "items": [
+      {
+        "product_id": "sku-25",
+        "quantity": 3,
+        "price": 37.05
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0007",
+    "user_id": "user-102",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 148.15,
+    "currency": "CAD",
+    "payment_method": "paypal",
+    "status": "paid",
+    "items": [
+      {
+        "product_id": "sku-378",
+        "quantity": 3,
+        "price": 6.83
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0008",
+    "user_id": "user-210",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 178.03,
+    "currency": "CAD",
+    "payment_method": "card",
+    "status": "paid",
+    "items": [
+      {
+        "product_id": "sku-194",
+        "quantity": 1,
+        "price": 67.96
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0009",
+    "user_id": "user-657",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 409.56,
+    "currency": "CAD",
+    "payment_method": "card",
+    "status": "shipped",
+    "items": [
+      {
+        "product_id": "sku-289",
+        "quantity": 2,
+        "price": 171.18
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0010",
+    "user_id": "user-917",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 456.32,
+    "currency": "CAD",
+    "payment_method": "card",
+    "status": "shipped",
+    "items": [
+      {
+        "product_id": "sku-202",
+        "quantity": 2,
+        "price": 26.14
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0011",
+    "user_id": "user-185",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 446.76,
+    "currency": "CAD",
+    "payment_method": "card",
+    "status": "completed",
+    "items": [
+      {
+        "product_id": "sku-45",
+        "quantity": 1,
+        "price": 70.95
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0012",
+    "user_id": "user-748",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 431.34,
+    "currency": "CAD",
+    "payment_method": "card",
+    "status": "shipped",
+    "items": [
+      {
+        "product_id": "sku-270",
+        "quantity": 1,
+        "price": 227.15
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0013",
+    "user_id": "user-481",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 60.15,
+    "currency": "CAD",
+    "payment_method": "card",
+    "status": "completed",
+    "items": [
+      {
+        "product_id": "sku-236",
+        "quantity": 3,
+        "price": 294.95
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0014",
+    "user_id": "user-943",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 131.6,
+    "currency": "CAD",
+    "payment_method": "card",
+    "status": "created",
+    "items": [
+      {
+        "product_id": "sku-228",
+        "quantity": 3,
+        "price": 292.7
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0015",
+    "user_id": "user-92",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 253.71,
+    "currency": "CAD",
+    "payment_method": "paypal",
+    "status": "completed",
+    "items": [
+      {
+        "product_id": "sku-467",
+        "quantity": 3,
+        "price": 97.0
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0016",
+    "user_id": "user-161",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 155.08,
+    "currency": "CAD",
+    "payment_method": "paypal",
+    "status": "paid",
+    "items": [
+      {
+        "product_id": "sku-254",
+        "quantity": 3,
+        "price": 209.48
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0017",
+    "user_id": "user-896",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 408.35,
+    "currency": "CAD",
+    "payment_method": "paypal",
+    "status": "completed",
+    "items": [
+      {
+        "product_id": "sku-402",
+        "quantity": 3,
+        "price": 66.5
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0018",
+    "user_id": "user-643",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 85.53,
+    "currency": "CAD",
+    "payment_method": "card",
+    "status": "created",
+    "items": [
+      {
+        "product_id": "sku-167",
+        "quantity": 2,
+        "price": 187.12
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0019",
+    "user_id": "user-620",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 156.84,
+    "currency": "CAD",
+    "payment_method": "paypal",
+    "status": "shipped",
+    "items": [
+      {
+        "product_id": "sku-464",
+        "quantity": 2,
+        "price": 234.05
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  },
+  {
+    "schema_name": "order",
+    "schema_version": "v1",
+    "source_system": "orders",
+    "order_id": "ord-20251029-0020",
+    "user_id": "user-243",
+    "order_date": "2025-10-29T19:38:45.775771+00:00",
+    "total_amount": 247.69,
+    "currency": "CAD",
+    "payment_method": "paypal",
+    "status": "shipped",
+    "items": [
+      {
+        "product_id": "sku-334",
+        "quantity": 3,
+        "price": 12.28
+      }
+    ],
+    "ingestion_timestamp": "2025-10-29T19:38:45.775771+00:00"
+  }
+]

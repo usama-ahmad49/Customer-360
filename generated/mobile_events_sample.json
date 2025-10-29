@@ -1,0 +1,362 @@
+[
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "dfdc1d4a-52ca-41d8-bac4-697114e7cc73",
+    "user_id": "user-634",
+    "device_id": "device-829aa440",
+    "app_version": "1.7.2",
+    "event_type": "screen_view",
+    "event_timestamp": "2025-10-29T19:38:44.149945+00:00",
+    "os": "iOS",
+    "locale": "fr-CA",
+    "properties": {
+      "product_id": "sku-432",
+      "quantity": 3
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.149945+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "ad02e6bd-c6ee-42b8-be99-19906e036450",
+    "user_id": "user-647",
+    "device_id": "device-8fa0f264",
+    "app_version": "1.4.1",
+    "event_type": "product_view",
+    "event_timestamp": "2025-10-29T19:38:44.149945+00:00",
+    "os": "iOS",
+    "locale": "fr-CA",
+    "properties": {
+      "product_id": "sku-268",
+      "quantity": 3
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.149945+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "c96a312c-2af2-4184-bbcf-52a821a6edb8",
+    "user_id": "user-447",
+    "device_id": "device-2a41f0c5",
+    "app_version": "1.5.9",
+    "event_type": "screen_view",
+    "event_timestamp": "2025-10-29T19:38:44.149945+00:00",
+    "os": "Android",
+    "locale": "en-CA",
+    "properties": {
+      "product_id": "sku-40",
+      "quantity": 1
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.149945+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "9b4400f7-2fb8-4878-8a84-dd268964d9b1",
+    "user_id": "user-947",
+    "device_id": "device-2454e2c8",
+    "app_version": "1.7.3",
+    "event_type": "push_open",
+    "event_timestamp": "2025-10-29T19:38:44.149945+00:00",
+    "os": "iOS",
+    "locale": "fr-CA",
+    "properties": {
+      "product_id": "sku-70",
+      "quantity": 1
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.149945+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "df78929a-6fe1-4d26-8db8-90d74c0ad61a",
+    "user_id": "user-136",
+    "device_id": "device-0408336d",
+    "app_version": "1.4.2",
+    "event_type": "purchase",
+    "event_timestamp": "2025-10-29T19:38:44.149945+00:00",
+    "os": "iOS",
+    "locale": "fr-CA",
+    "properties": {
+      "product_id": "sku-289",
+      "quantity": 3
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.149945+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "5a1f9f12-deda-4e2e-a12b-5f0d1a54ebf5",
+    "user_id": "user-978",
+    "device_id": "device-6d175652",
+    "app_version": "1.7.6",
+    "event_type": "push_open",
+    "event_timestamp": "2025-10-29T19:38:44.149945+00:00",
+    "os": "iOS",
+    "locale": "fr-CA",
+    "properties": {
+      "product_id": "sku-50",
+      "quantity": 2
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.149945+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "4ef02d0e-4bc9-44cf-9ddb-36f1e60198d9",
+    "user_id": "user-948",
+    "device_id": "device-c6990b5d",
+    "app_version": "1.8.8",
+    "event_type": "purchase",
+    "event_timestamp": "2025-10-29T19:38:44.149945+00:00",
+    "os": "Android",
+    "locale": "en-CA",
+    "properties": {
+      "product_id": "sku-76",
+      "quantity": 3
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.149945+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "552e3aae-d6f1-4ccc-b702-c8fe22b9e7b0",
+    "user_id": "user-351",
+    "device_id": "device-3ca402be",
+    "app_version": "1.9.1",
+    "event_type": "purchase",
+    "event_timestamp": "2025-10-29T19:38:44.149945+00:00",
+    "os": "iOS",
+    "locale": "en-US",
+    "properties": {
+      "product_id": "sku-367",
+      "quantity": 2
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.168615+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "725c4a9e-97d3-4668-b2f5-48df32120e39",
+    "user_id": "user-839",
+    "device_id": "device-84770d93",
+    "app_version": "3.0.2",
+    "event_type": "add_to_cart",
+    "event_timestamp": "2025-10-29T19:38:44.172791+00:00",
+    "os": "iOS",
+    "locale": "en-CA",
+    "properties": {
+      "product_id": "sku-387",
+      "quantity": 2
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.172791+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "43e4523c-782a-435c-8a89-d5aae63fd584",
+    "user_id": "user-165",
+    "device_id": "device-65608e48",
+    "app_version": "3.9.5",
+    "event_type": "add_to_cart",
+    "event_timestamp": "2025-10-29T19:38:44.172791+00:00",
+    "os": "iOS",
+    "locale": "en-US",
+    "properties": {
+      "product_id": "sku-63",
+      "quantity": 1
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.172791+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "eaf1c7ef-6893-4dd2-86d1-8a6492032f96",
+    "user_id": "user-517",
+    "device_id": "device-bdb240d7",
+    "app_version": "3.0.5",
+    "event_type": "app_open",
+    "event_timestamp": "2025-10-29T19:38:44.172791+00:00",
+    "os": "Android",
+    "locale": "fr-CA",
+    "properties": {
+      "product_id": "sku-43",
+      "quantity": 3
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.172791+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "c934506f-9853-45b3-bfeb-4a2821165533",
+    "user_id": "user-653",
+    "device_id": "device-90476720",
+    "app_version": "3.9.6",
+    "event_type": "product_view",
+    "event_timestamp": "2025-10-29T19:38:44.172791+00:00",
+    "os": "iOS",
+    "locale": "en-CA",
+    "properties": {
+      "product_id": "sku-346",
+      "quantity": 3
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.172791+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "0063b9fb-70af-4306-94dd-794cf3b58a17",
+    "user_id": "user-509",
+    "device_id": "device-7f65c53d",
+    "app_version": "1.5.5",
+    "event_type": "screen_view",
+    "event_timestamp": "2025-10-29T19:38:44.172791+00:00",
+    "os": "iOS",
+    "locale": "en-CA",
+    "properties": {
+      "product_id": "sku-233",
+      "quantity": 1
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.172791+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "f7487c18-a4f9-4961-8de7-ffccf4ed9ce2",
+    "user_id": "user-267",
+    "device_id": "device-2e2f7683",
+    "app_version": "2.9.7",
+    "event_type": "push_open",
+    "event_timestamp": "2025-10-29T19:38:44.172791+00:00",
+    "os": "iOS",
+    "locale": "en-US",
+    "properties": {
+      "product_id": "sku-472",
+      "quantity": 2
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.172791+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "44c2a51d-be2c-469c-8c8d-b9d3c5787a27",
+    "user_id": "user-8",
+    "device_id": "device-d7c0e532",
+    "app_version": "1.5.4",
+    "event_type": "add_to_cart",
+    "event_timestamp": "2025-10-29T19:38:44.172791+00:00",
+    "os": "Android",
+    "locale": "fr-CA",
+    "properties": {
+      "product_id": "sku-328",
+      "quantity": 1
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.172791+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "e22fe187-634b-411f-bb7d-d7d6c4c45359",
+    "user_id": "user-435",
+    "device_id": "device-cfbdbc94",
+    "app_version": "3.6.9",
+    "event_type": "purchase",
+    "event_timestamp": "2025-10-29T19:38:44.172791+00:00",
+    "os": "iOS",
+    "locale": "en-CA",
+    "properties": {
+      "product_id": "sku-372",
+      "quantity": 2
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.172791+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "9940995f-dc5c-424f-8d75-397f9a5a91a2",
+    "user_id": "user-858",
+    "device_id": "device-453f989d",
+    "app_version": "2.4.0",
+    "event_type": "purchase",
+    "event_timestamp": "2025-10-29T19:38:44.188421+00:00",
+    "os": "Android",
+    "locale": "fr-CA",
+    "properties": {
+      "product_id": "sku-152",
+      "quantity": 1
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.188421+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "b4c2e780-e4ec-4f6a-87b0-6800d6a48a28",
+    "user_id": "user-423",
+    "device_id": "device-e94fa1f5",
+    "app_version": "3.2.3",
+    "event_type": "add_to_cart",
+    "event_timestamp": "2025-10-29T19:38:44.188421+00:00",
+    "os": "Android",
+    "locale": "en-CA",
+    "properties": {
+      "product_id": "sku-213",
+      "quantity": 3
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.188421+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "e66af15c-5643-460d-9505-c348c66c0ca1",
+    "user_id": "user-516",
+    "device_id": "device-59a35e25",
+    "app_version": "1.2.8",
+    "event_type": "product_view",
+    "event_timestamp": "2025-10-29T19:38:44.188421+00:00",
+    "os": "iOS",
+    "locale": "en-US",
+    "properties": {
+      "product_id": "sku-478",
+      "quantity": 2
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.188421+00:00"
+  },
+  {
+    "schema_name": "mobile_event",
+    "schema_version": "v1",
+    "source_system": "mobile",
+    "event_id": "5e375352-37de-4a08-a705-ce0ae4406208",
+    "user_id": "user-902",
+    "device_id": "device-5e899f13",
+    "app_version": "2.5.9",
+    "event_type": "screen_view",
+    "event_timestamp": "2025-10-29T19:38:44.188421+00:00",
+    "os": "Android",
+    "locale": "en-US",
+    "properties": {
+      "product_id": "sku-212",
+      "quantity": 2
+    },
+    "ingestion_timestamp": "2025-10-29T19:38:44.188421+00:00"
+  }
+]

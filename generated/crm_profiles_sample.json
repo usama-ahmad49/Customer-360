@@ -1,0 +1,402 @@
+[
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-85",
+    "first_name": "Cynthia",
+    "last_name": "Hudson",
+    "email": "gilbertalicia@example.net",
+    "phone": "8118052870",
+    "address": {
+      "line1": "9339 Brian Manor",
+      "city": "Lake Micheleburgh",
+      "postal_code": "86593",
+      "country": "LA"
+    },
+    "loyalty_tier": "silver",
+    "created_at": "2025-10-29T19:38:44.919955+00:00",
+    "updated_at": "2025-10-29T19:38:44.919955+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.919955+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-775",
+    "first_name": "Terrence",
+    "last_name": "Camacho",
+    "email": "websterjack@example.com",
+    "phone": "4014052811",
+    "address": {
+      "line1": "9856 Marshall Green",
+      "city": "Morrisport",
+      "postal_code": "88277",
+      "country": "GW"
+    },
+    "loyalty_tier": "silver",
+    "created_at": "2025-10-29T19:38:44.935564+00:00",
+    "updated_at": "2025-10-29T19:38:44.935564+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.935564+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-960",
+    "first_name": "Gabriel",
+    "last_name": "Thompson",
+    "email": "nicholas29@example.net",
+    "phone": "001-392-986-3459x673",
+    "address": {
+      "line1": "66067 Joyce Parkways Suite 404",
+      "city": "Barbaraview",
+      "postal_code": "61244",
+      "country": "JP"
+    },
+    "loyalty_tier": null,
+    "created_at": "2025-10-29T19:38:44.951149+00:00",
+    "updated_at": "2025-10-29T19:38:44.951149+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.951149+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-620",
+    "first_name": "Michael",
+    "last_name": "Ferguson",
+    "email": "gwagner@example.org",
+    "phone": "3375332971",
+    "address": {
+      "line1": "93725 Sabrina Camp Apt. 812",
+      "city": "Port Lance",
+      "postal_code": "11483",
+      "country": "CF"
+    },
+    "loyalty_tier": "bronze",
+    "created_at": "2025-10-29T19:38:44.951149+00:00",
+    "updated_at": "2025-10-29T19:38:44.951149+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.951149+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-787",
+    "first_name": "Jamie",
+    "last_name": "Ramirez",
+    "email": "delgadomatthew@example.org",
+    "phone": "9166732921",
+    "address": {
+      "line1": "821 Harrison Shoal Suite 074",
+      "city": "Diazfort",
+      "postal_code": "03785",
+      "country": "BI"
+    },
+    "loyalty_tier": "bronze",
+    "created_at": "2025-10-29T19:38:44.966800+00:00",
+    "updated_at": "2025-10-29T19:38:44.966800+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.966800+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-726",
+    "first_name": "Shannon",
+    "last_name": "Gray",
+    "email": "jhorton@example.com",
+    "phone": "4247311637",
+    "address": {
+      "line1": "19911 Madison Club",
+      "city": "Lake Kellyberg",
+      "postal_code": "54714",
+      "country": "CN"
+    },
+    "loyalty_tier": null,
+    "created_at": "2025-10-29T19:38:44.966800+00:00",
+    "updated_at": "2025-10-29T19:38:44.966800+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.966800+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-961",
+    "first_name": "Samantha",
+    "last_name": "Snyder",
+    "email": "birdalexander@example.com",
+    "phone": "001-498-699-4926",
+    "address": {
+      "line1": "00902 Le Roads",
+      "city": "Bradtown",
+      "postal_code": "77006",
+      "country": "IR"
+    },
+    "loyalty_tier": "gold",
+    "created_at": "2025-10-29T19:38:44.982423+00:00",
+    "updated_at": "2025-10-29T19:38:44.982423+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.982423+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-449",
+    "first_name": "Michele",
+    "last_name": "Carson",
+    "email": "samuel91@example.net",
+    "phone": "+1-765-281-8413x70962",
+    "address": {
+      "line1": "4967 Sean Valleys",
+      "city": "Michelleton",
+      "postal_code": "71901",
+      "country": "TJ"
+    },
+    "loyalty_tier": null,
+    "created_at": "2025-10-29T19:38:44.982423+00:00",
+    "updated_at": "2025-10-29T19:38:44.982423+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.982423+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-734",
+    "first_name": "Timothy",
+    "last_name": "Russell",
+    "email": "vmay@example.org",
+    "phone": "(571)237-5298",
+    "address": {
+      "line1": "48696 Catherine Terrace",
+      "city": "West Haydenbury",
+      "postal_code": "86146",
+      "country": "BH"
+    },
+    "loyalty_tier": "silver",
+    "created_at": "2025-10-29T19:38:44.982423+00:00",
+    "updated_at": "2025-10-29T19:38:44.982423+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.982423+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-538",
+    "first_name": "Brian",
+    "last_name": "Ward",
+    "email": "hillbrian@example.com",
+    "phone": "001-749-301-1846x30112",
+    "address": {
+      "line1": "4498 Miller Lodge Suite 886",
+      "city": "Williamtown",
+      "postal_code": "98955",
+      "country": "CG"
+    },
+    "loyalty_tier": null,
+    "created_at": "2025-10-29T19:38:44.998056+00:00",
+    "updated_at": "2025-10-29T19:38:44.998056+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.998056+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-158",
+    "first_name": "Michael",
+    "last_name": "Gutierrez",
+    "email": "eugene28@example.com",
+    "phone": "324.579.3846",
+    "address": {
+      "line1": "448 Chen Pass Apt. 690",
+      "city": "Port Madisonton",
+      "postal_code": "28707",
+      "country": "PY"
+    },
+    "loyalty_tier": null,
+    "created_at": "2025-10-29T19:38:44.998056+00:00",
+    "updated_at": "2025-10-29T19:38:44.998056+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:44.998056+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-307",
+    "first_name": "Shawn",
+    "last_name": "Watson",
+    "email": "ejohnson@example.net",
+    "phone": "7274206029",
+    "address": {
+      "line1": "321 Tate Villages",
+      "city": "Lake Lisamouth",
+      "postal_code": "96348",
+      "country": "LB"
+    },
+    "loyalty_tier": "silver",
+    "created_at": "2025-10-29T19:38:45.013848+00:00",
+    "updated_at": "2025-10-29T19:38:45.013848+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:45.013848+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-828",
+    "first_name": "Caitlyn",
+    "last_name": "Wilson",
+    "email": "ramoslisa@example.com",
+    "phone": "279.246.7561x024",
+    "address": {
+      "line1": "18921 Randall Light",
+      "city": "Williamstown",
+      "postal_code": "30487",
+      "country": "BS"
+    },
+    "loyalty_tier": "bronze",
+    "created_at": "2025-10-29T19:38:45.029514+00:00",
+    "updated_at": "2025-10-29T19:38:45.029514+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:45.029514+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-340",
+    "first_name": "Derek",
+    "last_name": "Jackson",
+    "email": "andrea87@example.net",
+    "phone": "(399)909-2605x1354",
+    "address": {
+      "line1": "29901 Nichols Ports Suite 216",
+      "city": "Kaitlynfurt",
+      "postal_code": "50348",
+      "country": "MN"
+    },
+    "loyalty_tier": null,
+    "created_at": "2025-10-29T19:38:45.029514+00:00",
+    "updated_at": "2025-10-29T19:38:45.029514+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:45.029514+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-809",
+    "first_name": "Brian",
+    "last_name": "Finley",
+    "email": "robbinsmichelle@example.org",
+    "phone": "399.332.9717x220",
+    "address": {
+      "line1": "85261 Mckinney Road Apt. 292",
+      "city": "Lake Patriciaview",
+      "postal_code": "04756",
+      "country": "KG"
+    },
+    "loyalty_tier": null,
+    "created_at": "2025-10-29T19:38:45.045108+00:00",
+    "updated_at": "2025-10-29T19:38:45.045108+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:45.045108+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-555",
+    "first_name": "Robert",
+    "last_name": "Wright",
+    "email": "kylestafford@example.com",
+    "phone": "(390)820-7512",
+    "address": {
+      "line1": "5679 Sarah Hills",
+      "city": "Hannahmouth",
+      "postal_code": "46424",
+      "country": "MY"
+    },
+    "loyalty_tier": null,
+    "created_at": "2025-10-29T19:38:45.060731+00:00",
+    "updated_at": "2025-10-29T19:38:45.060731+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:45.060731+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-36",
+    "first_name": "Dominique",
+    "last_name": "Garcia",
+    "email": "jamesgreen@example.net",
+    "phone": "355.680.6112x969",
+    "address": {
+      "line1": "3785 Sharp Pike Apt. 843",
+      "city": "Lake Jason",
+      "postal_code": "44071",
+      "country": "IL"
+    },
+    "loyalty_tier": null,
+    "created_at": "2025-10-29T19:38:45.060731+00:00",
+    "updated_at": "2025-10-29T19:38:45.060731+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:45.060731+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-129",
+    "first_name": "Diana",
+    "last_name": "Rodriguez",
+    "email": "amandacruz@example.org",
+    "phone": "920-979-6253x7832",
+    "address": {
+      "line1": "761 Laura Light",
+      "city": "West Christopherchester",
+      "postal_code": "89416",
+      "country": "LC"
+    },
+    "loyalty_tier": null,
+    "created_at": "2025-10-29T19:38:45.076356+00:00",
+    "updated_at": "2025-10-29T19:38:45.076356+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:45.076356+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-752",
+    "first_name": "Crystal",
+    "last_name": "Diaz",
+    "email": "jacobsreginald@example.com",
+    "phone": "830.865.7204",
+    "address": {
+      "line1": "678 Charles Turnpike Suite 146",
+      "city": "Port Johnnyfurt",
+      "postal_code": "31124",
+      "country": "GB"
+    },
+    "loyalty_tier": "silver",
+    "created_at": "2025-10-29T19:38:45.076356+00:00",
+    "updated_at": "2025-10-29T19:38:45.076356+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:45.076356+00:00"
+  },
+  {
+    "schema_name": "crm_profile",
+    "schema_version": "v1",
+    "source_system": "crm",
+    "user_id": "user-852",
+    "first_name": "Scott",
+    "last_name": "Rios",
+    "email": "jill16@example.org",
+    "phone": "001-203-400-1355",
+    "address": {
+      "line1": "2238 John Street Apt. 417",
+      "city": "Stephensonfort",
+      "postal_code": "52804",
+      "country": "TG"
+    },
+    "loyalty_tier": "gold",
+    "created_at": "2025-10-29T19:38:45.076356+00:00",
+    "updated_at": "2025-10-29T19:38:45.076356+00:00",
+    "ingestion_timestamp": "2025-10-29T19:38:45.076356+00:00"
+  }
+]
