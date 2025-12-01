@@ -1,0 +1,8 @@
+[
+  {"ParameterKey": "SourceDBEndpoint", "ParameterValue": "YOUR_DB_HOST"},
+  {"ParameterKey": "SourceDBPort", "ParameterValue": "3306"},
+  {"ParameterKey": "SourceDBName", "ParameterValue": "crm"},
+  {"ParameterKey": "SourceDBUser", "ParameterValue": "root"},
+  {"ParameterKey": "SourceDBPassword", "ParameterValue": "admin"},
+  {"ParameterKey": "Region", "ParameterValue": "us-east-1"}
+]

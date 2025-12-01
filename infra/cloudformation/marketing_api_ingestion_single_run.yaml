@@ -1,0 +1,67 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Single-run Marketing API ingestion Lambda (reads fake JSON from GitHub once and uploads to S3)
+
+Parameters:
+  S3BucketName:
+    Type: String
+    Default: customer360-ingest
+  GitHubDataURL:
+    Type: String
+    Description: Raw GitHub URL to the fake marketing data JSON file
+
+Resources:
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: marketing-ingestion-single-run-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: s3-write
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: s3:PutObject
+                Resource: !Sub arn:aws:s3:::${S3BucketName}/marketing/*
+
+  MarketingIngestionLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: marketing-ingestion-single-run
+      Runtime: python3.11
+      Handler: index.lambda_handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 60
+      Environment:
+        Variables:
+          S3_BUCKET: !Ref S3BucketName
+          GITHUB_URL: !Ref GitHubDataURL
+      Code:
+        ZipFile: |
+          import json, boto3, requests, datetime, os
+          s3 = boto3.client('s3')
+
+          def lambda_handler(event, context):
+              url = os.environ['GITHUB_URL']
+              bucket = os.environ['S3_BUCKET']
+              print(f"Fetching data from {url}")
+              resp = requests.get(url, timeout=10)
+              data = resp.json()
+              key = f"marketing/raw/events_{datetime.datetime.utcnow().strftime('%Y%m%dT%H%M%S')}.json"
+              s3.put_object(Bucket=bucket, Key=key, Body=json.dumps(data))
+              print(f"Uploaded {len(data)} records to s3://{bucket}/{key}")
+              return {"status": "ok", "records": len(data)}
+
+Outputs:
+  LambdaFunctionName:
+    Value: !Ref MarketingIngestionLambda
+  TargetS3Path:
+    Value: !Sub s3://${S3BucketName}/marketing/raw/

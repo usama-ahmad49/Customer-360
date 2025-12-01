@@ -1,0 +1,8 @@
+[
+  {"ParameterKey":"DBName","ParameterValue":"crm"},
+  {"ParameterKey":"MasterUsername","ParameterValue":"admin"},
+  {"ParameterKey":"MasterUserPassword","ParameterValue":"admin123"},
+  {"ParameterKey":"VpcId","ParameterValue":"vpc-0dd9ee6b292e70c5e"},
+  {"ParameterKey":"PublicSubnet1","ParameterValue":"subnet-054b5b18956b2cb09"},
+  {"ParameterKey":"PublicSubnet2","ParameterValue":"subnet-0722c74178d01e16f"}
+]

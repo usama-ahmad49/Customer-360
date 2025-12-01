@@ -1,0 +1,10 @@
+{
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Effect":"Allow",
+      "Action":["kinesis:PutRecord","kinesis:PutRecords"],
+      "Resource":["arn:aws:kinesis:us-east-1:313908798108:stream/customer360-clickstream"]
+    }
+  ]
+}

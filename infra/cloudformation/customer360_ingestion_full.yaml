@@ -1,0 +1,323 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  Unified Customer360 Ingestion Layer
+  • Kinesis + Firehose (clickstream)
+  • DMS (CRM/Orders)
+  • Lambda (GitHub marketing data)
+  • S3 batch upload trigger validation
+
+Parameters:
+  S3BucketName:
+    Type: String
+    Default: customer360-ingest
+  GitHubDataURL:
+    Type: String
+    Description: Raw GitHub URL of fake marketing JSON
+  SourceDBEndpoint:
+    Type: String
+    Description: RDS endpoint for CRM database
+  SourceDBPassword:
+    Type: String
+    NoEcho: true
+  SourceDBUser:
+    Type: String
+    Default: admin
+  SourceDBName:
+    Type: String
+    Default: crmdb
+  SourceDBPort:
+    Type: Number
+    Default: 3306
+
+Resources:
+# ----------------------------------------------------------
+# 1️⃣  KINESIS + FIREHOSE  (clickstream ingestion)
+# ----------------------------------------------------------
+  KinesisStream:
+    Type: AWS::Kinesis::Stream
+    Properties:
+      Name: customer360-clickstream
+      ShardCount: 1
+
+  FirehoseRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: customer360-firehose-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: firehose.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: firehose-s3-write
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: s3:PutObject
+                Resource: !Sub arn:aws:s3:::${S3BucketName}/streaming/*
+
+  FirehoseDelivery:
+    Type: AWS::KinesisFirehose::DeliveryStream
+    Properties:
+      DeliveryStreamName: customer360-firehose
+      DeliveryStreamType: KinesisStreamAsSource
+      KinesisStreamSourceConfiguration:
+        KinesisStreamARN: !GetAtt KinesisStream.Arn
+        RoleARN: !GetAtt FirehoseRole.Arn
+      S3DestinationConfiguration:
+        BucketARN: !Sub arn:aws:s3:::${S3BucketName}
+        Prefix: streaming/raw/
+        RoleARN: !GetAtt FirehoseRole.Arn
+
+# ----------------------------------------------------------
+# 2️⃣  DMS  (CRM/Order data via CDC)
+# ----------------------------------------------------------
+  DMSVpcRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: customer360-dms-vpc-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: dms.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole
+
+  DMSS3Role:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: customer360-dms-s3-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: dms.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: dms-s3-access
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:DeleteObject
+                  - s3:ListBucket
+                Resource:
+                  - !Sub arn:aws:s3:::${S3BucketName}
+                  - !Sub arn:aws:s3:::${S3BucketName}/dms/*
+
+  DMSInstance:
+    Type: AWS::DMS::ReplicationInstance
+    Properties:
+      ReplicationInstanceIdentifier: customer360-dms-instance
+      ReplicationInstanceClass: dms.t3.micro
+      AllocatedStorage: 10
+      PubliclyAccessible: true
+      VpcSecurityGroupIds: []
+
+  DMSSource:
+    Type: AWS::DMS::Endpoint
+    Properties:
+      EndpointIdentifier: crm-source
+      EndpointType: SOURCE
+      EngineName: mysql
+      Username: !Ref SourceDBUser
+      Password: !Ref SourceDBPassword
+      ServerName: !Ref SourceDBEndpoint
+      Port: !Ref SourceDBPort
+      DatabaseName: !Ref SourceDBName
+
+  DMSTarget:
+    Type: AWS::DMS::Endpoint
+    Properties:
+      EndpointIdentifier: s3-target
+      EndpointType: TARGET
+      EngineName: s3
+      S3Settings:
+        BucketName: !Ref S3BucketName
+        BucketFolder: dms/raw
+        ServiceAccessRoleArn: !GetAtt DMSS3Role.Arn
+
+  DMSTask:
+    Type: AWS::DMS::ReplicationTask
+    Properties:
+      MigrationType: full-load
+      ReplicationInstanceArn: !Ref DMSInstance
+      SourceEndpointArn: !Ref DMSSource
+      TargetEndpointArn: !Ref DMSTarget
+      ReplicationTaskIdentifier: customer360-dms-task
+      TableMappings: |
+        {
+          "rules": [{
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "object-locator": {"schema-name": "%","table-name": "%"},
+            "rule-action": "include"
+          }]
+        }
+
+# ----------------------------------------------------------
+# 3️⃣  LAMBDA (Marketing ingestion from GitHub JSON)
+# ----------------------------------------------------------
+  MarketingRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: customer360-marketing-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: s3-write
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: s3:PutObject
+                Resource: !Sub arn:aws:s3:::${S3BucketName}/marketing/*
+
+  MarketingLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: customer360-marketing-ingestion
+      Runtime: python3.11
+      Handler: index.lambda_handler
+      Role: !GetAtt MarketingRole.Arn
+      Timeout: 60
+      Environment:
+        Variables:
+          S3_BUCKET: !Ref S3BucketName
+          GITHUB_URL: !Ref GitHubDataURL
+      Code:
+        ZipFile: |
+          import json, boto3, requests, datetime, os
+          s3 = boto3.client('s3')
+          def lambda_handler(event, context):
+              url = os.environ['GITHUB_URL']
+              bucket = os.environ['S3_BUCKET']
+              print(f"Fetching data from {url}")
+              resp = requests.get(url, timeout=10)
+              data = resp.json()
+              key = f"marketing/raw/events_{datetime.datetime.utcnow().strftime('%Y%m%dT%H%M%S')}.json"
+              s3.put_object(Bucket=bucket, Key=key, Body=json.dumps(data))
+              print(f"Uploaded {len(data)} records to s3://{bucket}/{key}")
+              return {"records": len(data)}
+
+# ----------------------------------------------------------
+# 4️⃣  BATCH UPLOAD + EVENT TRIGGER VALIDATION
+# ----------------------------------------------------------
+  BatchRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: customer360-batch-validation-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: s3-access
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:CopyObject
+                  - s3:DeleteObject
+                Resource: !Sub arn:aws:s3:::${S3BucketName}/*
+              - Effect: Allow
+                Action: s3:ListBucket
+                Resource: !Sub arn:aws:s3:::${S3BucketName}
+
+  BatchLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: customer360-batch-validation
+      Runtime: python3.11
+      Handler: index.lambda_handler
+      Role: !GetAtt BatchRole.Arn
+      Timeout: 60
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref S3BucketName
+      Code:
+        ZipFile: |
+          import json, boto3, os
+          from jsonschema import ValidationError
+          s3 = boto3.client('s3')
+          def lambda_handler(event, context):
+              bucket = os.environ['BUCKET_NAME']
+              for r in event['Records']:
+                  key = r['s3']['object']['key']
+                  if not key.startswith("batch/"):
+                      continue
+                  print(f"Processing: {key}")
+                  tmp = '/tmp/file.json'
+                  s3.download_file(bucket, key, tmp)
+                  try:
+                      data = json.load(open(tmp))
+                      if not isinstance(data, list):
+                          raise ValidationError("Data not list")
+                      dst = key.replace("batch/","raw/")
+                      s3.copy_object(Bucket=bucket, CopySource={'Bucket':bucket,'Key':key}, Key=dst)
+                      print("Moved to raw/")
+                  except Exception as e:
+                      err = key.replace("batch/","error/")
+                      s3.copy_object(Bucket=bucket, CopySource={'Bucket':bucket,'Key':key}, Key=err)
+                      print(f"Error {e}; moved to {err}")
+              return {"status":"ok"}
+
+  BatchInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref BatchLambda
+      Action: lambda:InvokeFunction
+      Principal: s3.amazonaws.com
+      SourceArn: !Sub arn:aws:s3:::${S3BucketName}
+
+  BucketNotification:
+    Type: AWS::S3::BucketNotification
+    Properties:
+      Bucket: !Ref S3BucketName
+      LambdaConfigurations:
+        - Event: s3:ObjectCreated:*
+          Filter:
+            S3Key:
+              Rules:
+                - Name: prefix
+                  Value: batch/
+          Function: !GetAtt BatchLambda.Arn
+
+Outputs:
+  ClickstreamStream:
+    Value: !Ref KinesisStream
+  FirehoseDelivery:
+    Value: !Ref FirehoseDelivery
+  DMSInstance:
+    Value: !Ref DMSInstance
+  MarketingLambda:
+    Value: !Ref MarketingLambda
+  BatchValidationLambda:
+    Value: !Ref BatchLambda
+  Bucket:
+    Value: !Ref S3BucketName

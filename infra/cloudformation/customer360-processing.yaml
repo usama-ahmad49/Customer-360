@@ -1,0 +1,271 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Customer360 Processing & Identity Resolution - Base Infra (Glue DB, Role, CRM Standardization Job)
+
+Parameters:
+  RawBucketName:
+    Type: String
+    Description: S3 bucket name where raw data is stored (e.g. customer360-injest)
+  GlueScriptsBucket:
+    Type: String
+    Description: S3 bucket name where Glue ETL scripts are stored
+  GlueScriptsPrefix:
+    Type: String
+    Default: glue-scripts
+    Description: S3 prefix/folder where Glue scripts are stored (no leading/trailing slash)
+
+Resources:
+  Customer360Database:
+    Type: AWS::Glue::Database
+    Properties:
+      CatalogId: !Ref AWS::AccountId
+      DatabaseInput:
+        Name: customer360_db
+        Description: Customer 360 data lake database
+
+  GlueServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: customer360-glue-service-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - glue.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole
+      Policies:
+        - PolicyName: Customer360GlueS3Access
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                  - s3:ListBucket
+                Resource:
+                  - !Sub arn:aws:s3:::${RawBucketName}
+                  - !Sub arn:aws:s3:::${RawBucketName}/*
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - dynamodb:BatchWriteItem
+                  - dynamodb:PutItem
+                  - dynamodb:DescribeTable
+                Resource:
+                  - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/customer360_profiles
+
+  GlueJobStgCrm:
+    Type: AWS::Glue::Job
+    Properties:
+      Name: customer360-stg-crm
+      Role: !GetAtt GlueServiceRole.Arn
+      Command:
+        Name: glueetl
+        ScriptLocation: !Sub s3://${GlueScriptsBucket}/${GlueScriptsPrefix}/stg_crm.py
+        PythonVersion: "3"
+      GlueVersion: "4.0"
+      DefaultArguments:
+        "--job-language": "python"
+        "--enable-metrics": "true"
+        "--enable-continuous-cloudwatch-log": "true"
+        "--database_name": "customer360_db"
+        "--raw_bucket": !Ref RawBucketName
+      ExecutionProperty:
+        MaxConcurrentRuns: 1
+      MaxRetries: 0
+      Timeout: 30
+      NumberOfWorkers: 2
+      WorkerType: G.1X
+
+  GlueJobIdentityResolution:
+    Type: AWS::Glue::Job
+    Properties:
+      Name: customer360-identity-resolution
+      Role: !GetAtt GlueServiceRole.Arn
+      Command:
+        Name: glueetl
+        ScriptLocation: !Sub s3://${GlueScriptsBucket}/${GlueScriptsPrefix}/identity_resolution.py
+        PythonVersion: "3"
+      GlueVersion: "4.0"
+      DefaultArguments:
+        "--job-language": "python"
+        "--enable-continuous-cloudwatch-log": "true"
+        "--enable-metrics": "true"
+        "--database_name": "customer360_db"
+        "--raw_bucket": !Ref RawBucketName
+      ExecutionProperty:
+        MaxConcurrentRuns: 1
+      MaxRetries: 0
+      Timeout: 30
+      NumberOfWorkers: 2
+      WorkerType: G.1X
+
+  Customer360DynamoDB:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: customer360_profiles
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: customer360_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: customer360_id
+          KeyType: HASH
+
+  Customer360LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: customer360-lambda-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: DynamoDBAccess
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:GetItem
+                  - dynamodb:Query
+                  - dynamodb:Scan
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: "*"
+
+  Customer360LambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: customer360-profile-api
+      Handler: lambda_function.lambda_handler
+      Role: !GetAtt Customer360LambdaRole.Arn
+      Runtime: python3.10
+      Timeout: 10
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+
+          dynamo = boto3.resource("dynamodb")
+          table = dynamo.Table("customer360_profiles")
+
+          def lambda_handler(event, context):
+              customer_id = event["pathParameters"].get("id")
+
+              response = table.get_item(Key={"customer360_id": customer_id})
+
+              if "Item" not in response:
+                  return {
+                      "statusCode": 404,
+                      "body": json.dumps({"error": "Customer not found"})
+                  }
+
+              return {
+                  "statusCode": 200,
+                  "body": json.dumps(response["Item"])
+              }
+
+  Customer360ApiGateway:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: customer360-api
+
+  Customer360ApiResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref Customer360ApiGateway
+      ParentId: !GetAtt Customer360ApiGateway.RootResourceId
+      PathPart: customers
+
+  Customer360ApiCustomerById:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref Customer360ApiGateway
+      ParentId: !Ref Customer360ApiResource
+      PathPart: "{id}"
+
+  Customer360ApiGatewayRole:
+    Type: AWS::IAM::Role
+    Properties:
+      # you may omit RoleName if you’ve had clashes
+      RoleName: customer360-apigw-lambda-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: apigateway.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: AllowInvokeLambda
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - lambda:InvokeFunction
+                Resource: !GetAtt Customer360LambdaFunction.Arn
+
+
+  Customer360ApiGetMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref Customer360ApiGateway
+      ResourceId: !Ref Customer360ApiCustomerById
+      HttpMethod: GET
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS
+        IntegrationHttpMethod: POST
+        Uri: !Sub >
+          arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Customer360LambdaFunction.Arn}/invocations
+        Credentials: !GetAtt Customer360ApiGatewayRole.Arn
+
+
+  Customer360LambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref Customer360LambdaFunction
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+
+  Customer360ApiDeployment:
+    Type: AWS::ApiGateway::Deployment
+    DependsOn: Customer360ApiGetMethod
+    Properties:
+      RestApiId: !Ref Customer360ApiGateway
+      StageName: prod
+
+
+Outputs:
+  GlueDatabaseName:
+    Value: customer360_db
+    Export:
+      Name: Customer360-GlueDatabaseName
+
+  GlueJobStgCrmName:
+    Value: customer360-stg-crm
+    Export:
+      Name: Customer360-GlueJob-StgCrm
+
+  ApiEndpoint:
+    Value: !Sub "https://${Customer360ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/prod/customers/"
+

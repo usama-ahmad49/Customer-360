@@ -1,0 +1,138 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  AWS DMS CDC ingestion pipeline for Customer360 (CRM + Orders)
+  Creates DMS replication instance, endpoints, IAM role, and S3 bucket.
+
+Parameters:
+  SourceDBEndpoint:
+    Type: String
+    Description: "Hostname or endpoint of the source MySQL database."
+  SourceDBPort:
+    Type: Number
+    Default: 3306
+  SourceDBName:
+    Type: String
+    Default: crm
+  SourceDBUser:
+    Type: String
+    Default: root
+  SourceDBPassword:
+    Type: String
+    NoEcho: true
+  Region:
+    Type: String
+    Default: us-east-1
+
+Resources:
+  ## S3 bucket for DMS target
+  DMSTargetBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub customer360-dms-${AWS::AccountId}-${Region}
+      LifecycleConfiguration:
+        Rules:
+          - Id: DeleteAfter7Days
+            Status: Enabled
+            ExpirationInDays: 7
+      VersioningConfiguration:
+        Status: Suspended
+
+  ## IAM role for DMS to access S3
+  DMSS3Role:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub dms-s3-role-${AWS::AccountId}
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: dms.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: dms-s3-access
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:ListBucket
+                Resource:
+                  - !GetAtt DMSTargetBucket.Arn
+                  - !Sub "${DMSTargetBucket.Arn}/*"
+
+  ## DMS replication instance
+  DMSInstance:
+    Type: AWS::DMS::ReplicationInstance
+    Properties:
+      ReplicationInstanceIdentifier: customer360-dms-instance
+      ReplicationInstanceClass: dms.t3.micro
+      AllocatedStorage: 20
+      PubliclyAccessible: true
+      MultiAZ: false
+      Tags:
+        - Key: project
+          Value: customer360
+
+  ## DMS source endpoint
+  DMSSourceEndpoint:
+    Type: AWS::DMS::Endpoint
+    Properties:
+      EndpointIdentifier: crm-source
+      EndpointType: source
+      EngineName: mysql
+      ServerName: !Ref SourceDBEndpoint
+      Port: !Ref SourceDBPort
+      Username: !Ref SourceDBUser
+      Password: !Ref SourceDBPassword
+      DatabaseName: !Ref SourceDBName
+
+  ## DMS target endpoint (S3)
+  DMSTargetEndpoint:
+    Type: AWS::DMS::Endpoint
+    Properties:
+      EndpointIdentifier: s3-target
+      EndpointType: target
+      EngineName: s3
+      S3Settings:
+        BucketName: !Ref DMSTargetBucket
+        BucketFolder: dms-data
+        ServiceAccessRoleArn: !GetAtt DMSS3Role.Arn
+        CompressionType: GZIP
+
+  ## DMS replication task
+  DMSReplicationTask:
+    Type: AWS::DMS::ReplicationTask
+    Properties:
+      MigrationType: full-load-and-cdc
+      ReplicationInstanceArn: !Ref DMSInstance
+      SourceEndpointArn: !Ref DMSSourceEndpoint
+      TargetEndpointArn: !Ref DMSTargetEndpoint
+      TableMappings: |
+        {
+          "rules": [
+            {
+              "rule-type": "selection",
+              "rule-id": "1",
+              "rule-name": "include-all",
+              "object-locator": {"schema-name": "%", "table-name": "%"},
+              "rule-action": "include"
+            }
+          ]
+        }
+      ReplicationTaskIdentifier: customer360-crm-task
+      Tags:
+        - Key: project
+          Value: customer360
+
+Outputs:
+  S3Bucket:
+    Description: "DMS Target S3 Bucket"
+    Value: !Ref DMSTargetBucket
+  DMSRoleArn:
+    Description: "IAM Role for DMS S3 access"
+    Value: !GetAtt DMSS3Role.Arn
+  DMSInstanceArn:
+    Description: "Replication Instance ARN"
+    Value: !Ref DMSInstance
